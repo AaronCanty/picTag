@@ -7,29 +7,16 @@ import androidx.annotation.Keep;
 
 public class ImageModel {
 
-    String tag, description, location;
+    String imageUrl;
 
-    public ImageModel(){
-
+    public ImageModel() {
     }
 
-    //shortcut is alt+insert
-
-    public ImageModel(String tag, String description, String location) {
-        this.tag = tag;
-        this.description = description;
-        this.location = location;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public String getTag() {
-        return tag;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getLocation() {
-        return location;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
