@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 // taken help from https://firebase.google.com/docs/database/android/read-and-write
@@ -30,23 +31,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this,3));
         recyclerView.setHasFixedSize(true);
 
 
         imageModelArrayList = new ArrayList<>();
-        clearall();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("images");
+        clearAll();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("images");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                clearall();
+                clearAll();
 
                 for(DataSnapshot snapshot1: snapshot.getChildren()){
                     ImageModel imageModel = new ImageModel();
-                    imageModel.setImageUrl(snapshot1.getValue()
-                            .toString());
+                    imageModel.setName(snapshot1.child("name").getValue().toString());
+                    imageModel.setImageUrl(snapshot1.child("image").getValue().toString());
 
                     imageModelArrayList.add(imageModel);
                 }
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void clearall(){
+    private void clearAll(){
         if(imageModelArrayList != null){
             imageModelArrayList.clear();
             if(recyclerViewAdaptor != null){

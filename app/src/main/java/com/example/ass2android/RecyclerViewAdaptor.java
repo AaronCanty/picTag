@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
@@ -39,12 +40,21 @@ private ArrayList<ImageModel> imageModelArrayList;
                 .load(imageModelArrayList.get(position).getImageUrl())
                 .into(holder.imageView);
 
-        holder.itemView.setOnClickListener(view -> {
+        holder.textView.setText(imageModelArrayList.get(position).getName());
+
+        holder.imageView.setOnClickListener(view -> {
             Intent intent = new Intent(context, NewActivity.class);
             intent.putExtra("images@#", imageModelArrayList.get(position).getImageUrl());
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         });
+
+//        holder.imageView.setOnClickListener(view -> {
+//            Intent intent = new Intent(context, NewActivity.class);
+//            intent.putExtra("images@#", imageModelArrayList.get(position).getImageUrl());
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(intent);
+//        });
     }
 
     @Override
@@ -54,10 +64,12 @@ private ArrayList<ImageModel> imageModelArrayList;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
+        TextView textView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
+            textView = itemView.findViewById(R.id.imgName);
         }
     }
 }

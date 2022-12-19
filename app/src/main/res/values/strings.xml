@@ -14,4 +14,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_launch">LaunchActivity</string>
+    <string name="_1_upload_an_image_n2_add_tags_location_name_description_n3_take_a_look_at_the_gallery">1. Upload an image\n2. Add tags, location, name, description\n3. Take a look at the gallery!</string>
+    <string name="download">Download</string>
+    <string name="share">Share</string>
 </resources>

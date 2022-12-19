@@ -1,15 +1,21 @@
 package com.example.ass2android;
 
 
-import androidx.annotation.Keep;
-
-@Keep // when you want to publish your apk to Google play store
-
 public class ImageModel {
 
     String imageUrl;
+    String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public ImageModel() {
+        this.imageUrl = imageUrl;
     }
 
     public String getImageUrl() {
