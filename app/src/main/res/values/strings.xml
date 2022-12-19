@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ass2Android</string>
+    <string name="app_name">PicTag App for Android</string>
     <string name="pictag">PicTag</string>
     <string name="aaron_canty_nmtu_year_3_nr00206055">Aaron Canty\nMTU Year 3\nR00206055</string>
     <string name="title_activity_main">Main_Activity</string>
@@ -14,7 +14,33 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_launch">LaunchActivity</string>
-    <string name="_1_upload_an_image_n2_add_tags_location_name_description_n3_take_a_look_at_the_gallery">1. Upload an image\n2. Add tags, location, name, description\n3. Take a look at the gallery!</string>
+    <string name="_1_upload_an_image_n2_add_tags_location_name_description_n3_take_a_look_at_the_gallery">Two Steps:\n\n1. Add tags, location, name and a description to your images\n2. Take a look at the gallery!</string>
     <string name="download">Download</string>
     <string name="share">Share</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open_gallery">Open Gallery</string>
+    <string name="about_app_author">About App Author</string>
+    <string name="title_activity_about_author">about_author</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="exit">Exit</string>
+    <string name="thanks_for_everything_samreen_from_modular_programming_in_first_year_to_mobile_devices_this_year_all_the_best_for_the_future_take_care_aaron">Thanks for everything Samreen, from modular programming in first year to mobile devices this year. This module was definitely one of the coolest 😁!\n\nAll the best for the future and\nHappy Holidays!\n\nTake care,\nAaron</string>
+    <string name="xmas_tree">xmas tree</string>
+    <string name="tags">Tags:</string>
+    <string name="pic">Pic:</string>
+    <string name="quit_app">Quit App</string>
+    <string name="about_click_me">About -- Click Me</string>
+    <string name="add_data">Add Data</string>
+    <string name="description">Description</string>
+    <string name="Tags">Tags</string>
+    <string name="name">Name</string>
 </resources>

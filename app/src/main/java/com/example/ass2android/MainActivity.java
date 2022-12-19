@@ -1,180 +1,63 @@
 package com.example.ass2android;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import java.util.ArrayList;
-import java.util.Objects;
+import com.google.android.material.tabs.TabLayout;
 
-
-// taken help from https://firebase.google.com/docs/database/android/read-and-write
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private ArrayList<ImageModel> imageModelArrayList;
-    private RecyclerViewAdaptor recyclerViewAdaptor;
-
+    //step1
+    TabLayout tabLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this,3));
-        recyclerView.setHasFixedSize(true);
-
-
-        imageModelArrayList = new ArrayList<>();
-        clearAll();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("images");
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                clearAll();
-
-                for(DataSnapshot snapshot1: snapshot.getChildren()){
-                    ImageModel imageModel = new ImageModel();
-                    imageModel.setName(snapshot1.child("name").getValue().toString());
-                    imageModel.setImageUrl(snapshot1.child("image").getValue().toString());
-
-                    imageModelArrayList.add(imageModel);
-                }
-
-                recyclerViewAdaptor = new RecyclerViewAdaptor(getApplicationContext(), imageModelArrayList);
-                recyclerView.setAdapter(recyclerViewAdaptor);
-                recyclerViewAdaptor.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this,
-                        "DB Error:" + error.getMessage(),
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-    }
-
-    private void clearAll(){
-        if(imageModelArrayList != null){
-            imageModelArrayList.clear();
-            if(recyclerViewAdaptor != null){
-                recyclerViewAdaptor.notifyDataSetChanged();
-            }
-        }
-imageModelArrayList = new ArrayList<>();
-    }
-}
-
-
-
-
-
+//        setContentView(R.layout.main_activity);
+//        //step2
+//        tabLayout = findViewById(R.id.tablayout);
 //
-//package com.example.ass2android;
+//        //step3  setup the first fragment on start
+//        getSupportFragmentManager().beginTransaction()
+//                .add(R.id.frameLayout, new MainFragment()).commit();
 //
-//        import androidx.annotation.NonNull;
-//        import androidx.appcompat.app.AlertDialog;
-//        import androidx.appcompat.app.AppCompatActivity;
-//        import android.content.DialogInterface;
-//        import android.os.Bundle;
-//        import android.view.View;
-//        import android.widget.AdapterView;
-//        import android.widget.ArrayAdapter;
-//        import android.widget.Button;
-//        import android.widget.EditText;
-//        import android.widget.LinearLayout;
-//        import android.widget.ListView;
-//        import android.widget.TextView;
-//        import com.google.firebase.database.DataSnapshot;
-//        import com.google.firebase.database.DatabaseError;
-//        import com.google.firebase.database.DatabaseReference;
-//        import com.google.firebase.database.FirebaseDatabase;
-//        import com.google.firebase.database.ValueEventListener;
-//        import java.util.ArrayList;
-//        import java.util.List;
+//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 //
-//
-//// taken help from https://firebase.google.com/docs/database/android/read-and-write
-//public class MainActivity extends AppCompatActivity {
-//    DatabaseReference photoDB;
-//
-//    EditText tagEdit, descriptionEdit, locationEdit;
-//    Button addBTN;
-//    ListView imageListView;
-//    List<ImageModel> imageModelList;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//
-//        //get them from the xml file
-//        tagEdit = findViewById(R.id.Tag);
-//        descriptionEdit = findViewById(R.id.Description);
-//        locationEdit = findViewById(R.id.Location);
-//
-//        addBTN = findViewById(R.id.add_img);
-//
-//        imageListView = findViewById(R.id.image_listview);
-//        imageModelList = new ArrayList<>();
-////get firebase reference to the database path where the images will be
-//        photoDB = FirebaseDatabase.getInstance().getReference("Image");
-//
-//        addBTN.setOnClickListener(v -> addImg(tagEdit.getText().toString().trim(),
-//                descriptionEdit.getText().toString().trim(),
-//                locationEdit.getText().toString().trim()));
-//    }
-//    // adding the typed in data
-//    private void addImg(String tag, String description, String location)
-//    {
-//        String id = photoDB.push().getKey();
-//
-//        ImageModel imgModel = new ImageModel(tag, description, location);
-//        photoDB.child(id).setValue(imgModel);
-//
-//
-//    }
-//
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        photoDB.addValueEventListener(new ValueEventListener() {
 //            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                // imageModelList.clear(); // every time when data updates in firebase, it creates a list with
-//                // updated items. Clear list
-//                if(snapshot.exists())
-//                {
-//                    for(DataSnapshot imageSnapShot: snapshot.getChildren())
-//                    {
-//                        ImageModel imageModel = imageSnapShot.getValue(ImageModel.class);
-//                        imageModelList.add(imageModel);
-//                    }
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                //step4 switch positions on tab
+//                switch (tab.getPosition()) {
+//                    case 0:
+//                        getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.frameLayout,
+//                                        new MainFragment()).commit();
+//                        break;
+//                    case 1:
+//                        getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.frameLayout,
+//                                        new AboutUsFragment()).commit();
+//                        break;
+//                    case 2:
+//                        getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.frameLayout,
+//                                        new ContactUsFragment()).commit();
+//                        break;
 //
-//                    Image_ListAdaptor adaptor = new Image_ListAdaptor(MainActivity.this, imageModelList);
-//                    imageListView.setAdapter(adaptor);
 //                }
 //            }
 //
 //            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
 //
 //            }
 //        });
+//
 //    }
-//}
+}

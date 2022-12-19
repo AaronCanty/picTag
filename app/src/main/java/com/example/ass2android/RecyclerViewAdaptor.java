@@ -4,12 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -41,20 +41,14 @@ private ArrayList<ImageModel> imageModelArrayList;
                 .into(holder.imageView);
 
         holder.textView.setText(imageModelArrayList.get(position).getName());
+        holder.tagView.setText(imageModelArrayList.get(position).getTags());
+        holder.tagView.setText(imageModelArrayList.get(position).getTags());
+
 
         holder.imageView.setOnClickListener(view -> {
-            Intent intent = new Intent(context, NewActivity.class);
-            intent.putExtra("images@#", imageModelArrayList.get(position).getImageUrl());
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
+            Toast.makeText(context, imageModelArrayList.get(position).getDescription(), Toast.LENGTH_SHORT).show();
         });
 
-//        holder.imageView.setOnClickListener(view -> {
-//            Intent intent = new Intent(context, NewActivity.class);
-//            intent.putExtra("images@#", imageModelArrayList.get(position).getImageUrl());
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            context.startActivity(intent);
-//        });
     }
 
     @Override
@@ -65,11 +59,14 @@ private ArrayList<ImageModel> imageModelArrayList;
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
+        TextView tagView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageView);
+            imageView = itemView.findViewById(R.id.logo);
             textView = itemView.findViewById(R.id.imgName);
+            tagView = itemView.findViewById(R.id.imgTags);
         }
     }
+
 }
