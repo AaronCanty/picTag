@@ -21,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// taken help from https://firebase.google.com/docs/database/android/read-and-write
 public class MainActivity extends AppCompatActivity {
     DatabaseReference photoDB;
 
@@ -44,20 +46,22 @@ public class MainActivity extends AppCompatActivity {
 
         imageListView = findViewById(R.id.image_listview);
         imageModelList = new ArrayList<>();
-
+//get firebase reference to the database path where the images will be
         photoDB = FirebaseDatabase.getInstance().getReference("Image");
 
         addBTN.setOnClickListener(v -> addImg(tagEdit.getText().toString().trim(),
                 descriptionEdit.getText().toString().trim(),
                 locationEdit.getText().toString().trim()));
     }
-
+// adding the typed in data
     private void addImg(String tag, String description, String location)
     {
         String id = photoDB.push().getKey();
 
         ImageModel imgModel = new ImageModel(tag, description, location);
         photoDB.child(id).setValue(imgModel);
+
+
     }
 
     @Override

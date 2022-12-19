@@ -13,6 +13,16 @@
         android:theme="@style/Theme.Ass2Android"
         tools:targetApi="31">
         <activity
+            android:name=".LaunchActivity"
+            android:exported="true"
+            android:label="@string/title_activity_launch"
+            android:theme="@style/Theme.Ass2Android.NoActionBar">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

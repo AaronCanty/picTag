@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!-- create a ImageView and Gallery -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitXY" />
+
+    <!-- By using android:spacing we can give spacing between images
+        android:animationDuration="3000" -> for animation running -->
+    <Gallery
+        android:id="@+id/languagesGallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:animationDuration="2000"
+        android:padding="10dp"
+        android:spacing="5dp"
+        android:unselectedAlpha="50" />
+</LinearLayout>

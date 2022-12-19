@@ -36,9 +36,12 @@ public class Image_ListAdaptor extends ArrayAdapter<ImageModel> {
 
         ImageModel imageModel = imageModelList.get(position);
 
-        tagTV.setText("Tag" + imageModel.getTag());
-        descripTV.setText("Description" + imageModel.getDescription());
-        locTV.setText("Location" + imageModel.getLocation());
+        tagTV.setText("Tag" +
+                imageModel.getTag());
+        descripTV.setText("Description" +
+                imageModel.getDescription());
+        locTV.setText("Location" +
+                imageModel.getLocation());
 
         return ListItem;
 
