@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +12,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +23,7 @@ import java.util.Objects;
 
 
 // taken help from https://firebase.google.com/docs/database/android/read-and-write
-public class Image_Main_Activity extends AppCompatActivity {
+public class Image_Gallery extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<ImageModel> imageModelArrayList;
     private RecyclerViewAdaptor recyclerViewAdaptor;
@@ -38,7 +36,7 @@ public class Image_Main_Activity extends AppCompatActivity {
         getSupportActionBar().setTitle("Image Gallery");
 
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(Image_Main_Activity.this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(Image_Gallery.this, 2));
         recyclerView.setHasFixedSize(true);
 
 
@@ -68,7 +66,7 @@ public class Image_Main_Activity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Image_Main_Activity.this,
+                Toast.makeText(Image_Gallery.this,
                         "DB Error:" + error.getMessage(),
                         Toast.LENGTH_SHORT).show();
             }
@@ -87,7 +85,7 @@ public class Image_Main_Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.about:
-                Intent intent = new Intent(this, about_author.class);
+                Intent intent = new Intent(this, ThanksActivity.class);
                 startActivity(intent);
             case R.id.exit:
                 System.exit(0);

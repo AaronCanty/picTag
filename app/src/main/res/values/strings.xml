@@ -43,4 +43,8 @@
     <string name="description">Description</string>
     <string name="Tags">Tags</string>
     <string name="name">Name</string>
+    <string name="about">About</string>
+    <string name="thanks">Thanks</string>
+    <string name="about_and_justification">I designed this app to investigate and enhance my knowledge of the Firebase Platform, specifically the Realtime Database.\nIn the image gallery, each photo is pulled from the database, along with the pseudo \'metadata\'. Ideally I wanted to have an image in the phone\'s folder / camera, and upload it to Firebase alongside the faux metadata and from there, perform basic CRUD options.\nAndroid Studio &amp; the Java variant it uses made this too tricky for me to do this iteration, but this app seems like a project I could be at for a while, maybe for the summer to keep my coding skills up.</string>
+    <string name="student_details">AARON CANTY\nMUNSTER TECHNOLOGICAL UNIVERSITY\nR00206055</string>
 </resources>

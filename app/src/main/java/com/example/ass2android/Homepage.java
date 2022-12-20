@@ -1,6 +1,7 @@
 package com.example.ass2android;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +9,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 public class Homepage extends AppCompatActivity {
 
@@ -20,7 +19,7 @@ public class Homepage extends AppCompatActivity {
 
         Button btn;
         btn = (Button) findViewById(R.id.button);
-        btn.setOnClickListener(v -> startActivity(new Intent(Homepage.this, Image_Main_Activity.class)));
+        btn.setOnClickListener(v -> startActivity(new Intent(Homepage.this, Image_Gallery.class)));
 
 
     }
@@ -36,7 +35,7 @@ public class Homepage extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.about:
-                Intent intent = new Intent(this, about_author.class);
+                Intent intent = new Intent(this, ThanksActivity.class);
                 startActivity(intent);
             case R.id.exit:
                 System.exit(0);
@@ -47,4 +46,6 @@ public class Homepage extends AppCompatActivity {
         }
 
     }
+
+
 }
