@@ -10,6 +10,10 @@
         android:id="@+id/exit"
         android:title="@string/quit_app"
         app:showAsAction="never" />
-
+    <item
+        android:id="@+id/editTags"
+        android:title="@string/edit_tags"
+        app:showAsAction="ifRoom"
+        />
 
 </menu>

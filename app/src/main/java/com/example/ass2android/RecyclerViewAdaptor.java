@@ -15,6 +15,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import javax.security.auth.Destroyable;
+
 public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdaptor.ViewHolder> {
 private Context context;
 private ArrayList<ImageModel> imageModelArrayList;
@@ -37,16 +39,18 @@ private ArrayList<ImageModel> imageModelArrayList;
     public void onBindViewHolder(@NonNull RecyclerViewAdaptor.ViewHolder holder, int position) {
         Glide
                 .with(context)
-                .load(imageModelArrayList.get(position).getImageUrl())
+                .load(imageModelArrayList.get(position).getImage())
                 .into(holder.imageView);
 
+
+        holder.descriptionView.setText(imageModelArrayList.get(position).getDescription());
         holder.textView.setText(imageModelArrayList.get(position).getName());
         holder.tagView.setText(imageModelArrayList.get(position).getTags());
-        holder.tagView.setText(imageModelArrayList.get(position).getTags());
+
 
 
         holder.imageView.setOnClickListener(view -> {
-            Toast.makeText(context, imageModelArrayList.get(position).getDescription(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, imageModelArrayList.get(position).getDescription(), Toast.LENGTH_LONG).show();
         });
 
     }
@@ -60,12 +64,14 @@ private ArrayList<ImageModel> imageModelArrayList;
         ImageView imageView;
         TextView textView;
         TextView tagView;
+        TextView descriptionView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.logo);
             textView = itemView.findViewById(R.id.imgName);
             tagView = itemView.findViewById(R.id.imgTags);
+            descriptionView = itemView.findViewById(R.id.imgDescription);
         }
     }
 

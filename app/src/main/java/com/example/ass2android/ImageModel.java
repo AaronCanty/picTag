@@ -3,10 +3,16 @@ package com.example.ass2android;
 
 public class ImageModel {
 
-    String imageUrl;
+    String image;
     String name;
     String tags;
     String description;
+
+    public ImageModel(String name, String tags, String description) {
+        this.name = name;
+        this.tags = tags;
+        this.description = description;
+    }
 
     public String getDescription() {
         return description;
@@ -25,22 +31,22 @@ public class ImageModel {
     }
 
     public ImageModel() {
-        this.imageUrl = imageUrl;
+        this.image = image;
     }
 
-    public ImageModel(String imageUrl, String name, String tags, String description) {
-        this.imageUrl = imageUrl;
+    public ImageModel(String image, String name, String tags, String description) {
+        this.image = image;
         this.name = name;
         this.tags = tags;
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getTags() {

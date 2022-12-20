@@ -14,7 +14,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_launch">LaunchActivity</string>
-    <string name="_1_upload_an_image_n2_add_tags_location_name_description_n3_take_a_look_at_the_gallery">Two Steps:\n\n1. Add tags, location, name and a description to your images\n2. Take a look at the gallery!</string>
+    <string name="appInfo">An online image space.\n\nNo need to have any photos on your phone anymore\n-save valuable space!\n\nTake a look at the gallery.</string>
     <string name="download">Download</string>
     <string name="share">Share</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -47,4 +47,6 @@
     <string name="thanks">Thanks</string>
     <string name="about_and_justification">I designed this app to investigate and enhance my knowledge of the Firebase Platform, specifically the Realtime Database.\nIn the image gallery, each photo is pulled from the database, along with the pseudo \'metadata\'. Ideally I wanted to have an image in the phone\'s folder / camera, and upload it to Firebase alongside the faux metadata and from there, perform basic CRUD options.\nAndroid Studio &amp; the Java variant it uses made this too tricky for me to do this iteration, but this app seems like a project I could be at for a while, maybe for the summer to keep my coding skills up.</string>
     <string name="student_details">AARON CANTY\nMUNSTER TECHNOLOGICAL UNIVERSITY\nR00206055</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="edit_tags">EDIT TAGS</string>
 </resources>

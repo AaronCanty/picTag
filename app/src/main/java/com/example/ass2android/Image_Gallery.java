@@ -3,8 +3,10 @@ package com.example.ass2android;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,10 +36,13 @@ public class Image_Gallery extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Image Gallery");
-
+LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(Image_Gallery.this, 2));
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(recyclerViewAdaptor);
+
+//        recyclerView.setLayoutManager(new GridLayoutManager(Image_Gallery.this, 2));
+//        recyclerView.setHasFixedSize(true);
 
 
         imageModelArrayList = new ArrayList<>();
@@ -52,7 +57,8 @@ public class Image_Gallery extends AppCompatActivity {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     ImageModel imageModel = new ImageModel();
 
-                    imageModel.setImageUrl(Objects.requireNonNull(snapshot1.child("image").getValue()).toString());
+                    imageModel.setDescription(Objects.requireNonNull(snapshot1.child("description").getValue()).toString());
+                    imageModel.setImage(Objects.requireNonNull(snapshot1.child("image").getValue()).toString());
                     imageModel.setName(Objects.requireNonNull(snapshot1.child("name").getValue()).toString());
                     imageModel.setTags(Objects.requireNonNull(snapshot1.child("tags").getValue()).toString());
 
@@ -85,12 +91,14 @@ public class Image_Gallery extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.about:
-                Intent intent = new Intent(this, ThanksActivity.class);
+                Intent intent = new Intent(Image_Gallery.this, ThanksActivity.class);
                 startActivity(intent);
             case R.id.exit:
                 System.exit(0);
                 return true;
-
+            case R.id.editTags:
+                Intent in = new Intent(Image_Gallery.this, MetaDataActivity.class);
+                startActivity(in);
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -98,6 +106,7 @@ public class Image_Gallery extends AppCompatActivity {
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     private void clearAll() {
         if (imageModelArrayList != null) {
             imageModelArrayList.clear();

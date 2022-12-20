@@ -8,7 +8,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardElevation="1dp"
@@ -25,76 +25,91 @@
         <ImageView
             android:id="@+id/logo"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="478dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             tools:ignore="MissingConstraints" />
 
 
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/picName"
-        android:layout_width="wrap_content"
+        android:id="@+id/tagPlace"
+        android:layout_width="50dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
         android:layout_weight="0.5"
         android:fontFamily="@font/noto_sans"
-        android:text="@string/pic"
+        android:text="@string/tags"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/imgTags"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgTags"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/imgTags"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:layout_weight="0.5"
+        android:fontFamily="@font/noto_sans"
+        android:text="@string/tags"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tagPlace"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/imgName"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_weight="0.5"
         android:fontFamily="@font/noto_sans"
         android:text="text"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/imgTags"
         app:layout_constraintStart_toEndOf="@+id/picName"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/imgTags"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="0.5"
-        android:fontFamily="@font/noto_sans"
-        android:text="@string/tags"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgTags2"
-        app:layout_constraintTop_toBottomOf="@+id/picName"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/imgTags2"
-        android:layout_width="50dp"
+        android:id="@+id/picName"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:layout_weight="0.5"
         android:fontFamily="@font/noto_sans"
-        android:text="@string/tags"
+        android:text="@string/pic"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/tagPlace"
+        app:layout_constraintEnd_toStartOf="@+id/imgName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/picName"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/imgDescription"
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:fontFamily="@font/noto_sans"
+        android:text="Description"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="558dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

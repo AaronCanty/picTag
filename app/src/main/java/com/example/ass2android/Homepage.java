@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Homepage extends AppCompatActivity {
 
@@ -17,10 +20,18 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_layout);
 
-        Button btn;
-        btn = (Button) findViewById(R.id.button);
-        btn.setOnClickListener(v -> startActivity(new Intent(Homepage.this, Image_Gallery.class)));
+        Button showGallery;
+        showGallery = (Button) findViewById(R.id.button);
+        showGallery.setOnClickListener(v -> showGallery.startAnimation(AnimationUtils.loadAnimation(Homepage.this, R.anim.move)));
+        showGallery.setOnClickListener(v -> startActivity(new Intent(Homepage.this, Image_Gallery.class)));
+        Button uploadpic;
+        uploadpic = findViewById(R.id.uploadPic);
+        uploadpic.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
 
+                Toast.makeText(Homepage.this, "Coming soon..? ", Toast.LENGTH_SHORT).show();
+                uploadpic.startAnimation(AnimationUtils.loadAnimation(Homepage.this, R.anim.shake));}
+        });
 
     }
 
@@ -39,7 +50,9 @@ public class Homepage extends AppCompatActivity {
                 startActivity(intent);
             case R.id.exit:
                 System.exit(0);
-                return true;
+            case R.id.editTags:
+                Intent i = new Intent(this, MetaDataActivity.class);
+                startActivity(i);
 
             default:
                 return super.onOptionsItemSelected(item);
