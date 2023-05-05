@@ -37,22 +37,20 @@ private ArrayList<ImageModel> imageModelArrayList;
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdaptor.ViewHolder holder, int position) {
-        Glide
-                .with(context)
-                .load(imageModelArrayList.get(position).getImage())
-                .into(holder.imageView);
+        if (imageModelArrayList.get(position) != null) {
+            Glide
+                    .with(context)
+                    .load(imageModelArrayList.get(position).getImage())
+                    .into(holder.imageView);
 
+            holder.descriptionView.setText(imageModelArrayList.get(position).getDescription());
+            holder.textView.setText(imageModelArrayList.get(position).getName());
+            holder.tagView.setText(imageModelArrayList.get(position).getTags());
 
-        holder.descriptionView.setText(imageModelArrayList.get(position).getDescription());
-        holder.textView.setText(imageModelArrayList.get(position).getName());
-        holder.tagView.setText(imageModelArrayList.get(position).getTags());
-
-
-
-        holder.imageView.setOnClickListener(view -> {
-            Toast.makeText(context, imageModelArrayList.get(position).getDescription(), Toast.LENGTH_LONG).show();
-        });
-
+            holder.imageView.setOnClickListener(view -> {
+                Toast.makeText(context, imageModelArrayList.get(position).getDescription(), Toast.LENGTH_LONG).show();
+            });
+        }
     }
 
     @Override

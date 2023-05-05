@@ -35,10 +35,10 @@ public class ImageModel {
     }
 
     public ImageModel(String image, String name, String tags, String description) {
+        this.description = description;
         this.image = image;
         this.name = name;
         this.tags = tags;
-        this.description = description;
     }
 
     public String getImage() {

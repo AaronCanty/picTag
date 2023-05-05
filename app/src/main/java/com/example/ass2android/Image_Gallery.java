@@ -57,10 +57,7 @@ LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     ImageModel imageModel = new ImageModel();
 
-                    imageModel.setDescription(Objects.requireNonNull(snapshot1.child("description").getValue()).toString());
                     imageModel.setImage(Objects.requireNonNull(snapshot1.child("image").getValue()).toString());
-                    imageModel.setName(Objects.requireNonNull(snapshot1.child("name").getValue()).toString());
-                    imageModel.setTags(Objects.requireNonNull(snapshot1.child("tags").getValue()).toString());
 
                     imageModelArrayList.add(imageModel);
                 }
